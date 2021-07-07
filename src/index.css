@@ -37,6 +37,7 @@
 }
 
 .player-bar{
-	display: block;
-	width: 70vw;
+	width: 100%;	
+	bottom: 0;
+	position: fixed;
 }
