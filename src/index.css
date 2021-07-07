@@ -20,17 +20,11 @@
 }
 
 .infor-play{
+	width: 10vw;
 	max-width: 10vw;
 	max-height: 9vh;
-	margin-right: 2vw;
+	margin-right: 1vw;
 	color: white;
-
-	display: inline-block;/* or inline-block */
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  overflow: hidden;
-  max-height: 3.6em;
-  line-height: 1.8em;
 }
 
 .pTitle{
@@ -42,7 +36,7 @@
 	font-size: 0.8rem;
 }
 
-audio{
+.player-bar{
 	display: block;
 	width: 70vw;
 }
