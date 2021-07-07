@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
 
 export default function Header() {
 	const play = useSelector(state => state.play);
+	const songs = useSelector(state => state.song);
 	return (
 		<Navbar bg="dark" expand="lg" fixed="top">
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,13 +25,17 @@ export default function Header() {
 				</Nav>
 
 				<Nav>
-					<NavDropdown title={<span className="text-white">Đổi thể loại</span>}
+					<NavDropdown title={<span className="text-white">Chọn thể loại</span>}
 						className="nav-down" id="basic-nav-dropdown">
-						<NavDropdown.Item>
-							<Nav.Link className="d-inline p-2 text-dark">
-								Nhạc trẻ
-							</Nav.Link>
-						</NavDropdown.Item>
+						{
+							songs.map((s) =>
+								<NavDropdown.Item>
+									<Nav.Link as={Link} to={"/" + s.name.replace(" ", "")} className="d-inline p-2 text-dark">
+										{s.name}
+									</Nav.Link>
+								</NavDropdown.Item>
+							)
+						}
 					</NavDropdown>
 				</Nav>
 			</Navbar.Collapse>
