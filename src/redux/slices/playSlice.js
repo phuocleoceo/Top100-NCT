@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialStates = {
-	coverImage: "",
-	creator: "",
-	lyric: "",
+	avatar: "https://i.pinimg.com/originals/60/45/b1/6045b177c7ed2848d4e1b66b69eb4790.jpg",
+	creator: "Trương Minh Phước",
+	lyric: "hihi",
 	music: "",
-	title: ""
+	title: "phuocleoceo"
 };
 
 export const playSlice = createSlice({
@@ -15,7 +15,7 @@ export const playSlice = createSlice({
 		setCurrentPlay: (state, action) => {
 			const currentPlay = action.payload;
 			return {
-				coverImage: currentPlay.coverImage,
+				avatar: currentPlay.avatar,
 				creator: currentPlay.creator,
 				lyric: currentPlay.lyric,
 				music: currentPlay.music,

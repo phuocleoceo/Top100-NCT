@@ -11,7 +11,7 @@ export default function SongListCard() {
 		<Container>
 			<Row>
 				{songs.map(s =>
-					<Col sm={6} lg={4}>
+					<Col sm={6} lg={3}>
 						<Card className="card-home">
 							<Card.Img variant="top"
 								src={s.avatar}

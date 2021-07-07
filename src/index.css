@@ -13,7 +13,36 @@
 	cursor:pointer;
 }
 
+.img-avatar-play{
+	width: 4vw;
+	height: 4vw;
+	margin-right: 2vw;
+}
+
+.infor-play{
+	max-width: 10vw;
+	max-height: 9vh;
+	margin-right: 2vw;
+	color: white;
+
+	display: inline-block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em;
+  line-height: 1.8em;
+}
+
+.pTitle{
+	font-size: 1rem;
+	margin-bottom: 0;
+}
+
+.pCreator{
+	font-size: 0.8rem;
+}
+
 audio{
 	display: block;
-	width: 96vw;
+	width: 70vw;
 }
