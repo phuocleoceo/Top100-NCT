@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [musicList, setMusicList] = useState([]);
+
+	useEffect(() => {
+		async function fetchMusic() {
+			const response = await fetch("https://api.apify.com/v2/key-value-stores/EJ3Ppyr2t73Ifit64/records/LATEST");
+			const responseJSON = await response.json();
+			const list = responseJSON.songs.top100_VN[0].songs;
+			setMusicList(list.slice(80));
+		}
+		fetchMusic();
+	}, []);
+	return (
+		<div>
+			{musicList.map((m) => (
+				<div>{m.title} <audio src={m.music} controls /></div>
+			))}
+		</div>
+	);
 }
 
 export default App;
