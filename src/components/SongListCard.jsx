@@ -3,17 +3,16 @@ import { Card, Row, Container, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentPlay } from '../redux/slices/playSlice';
 
-export default function SongListCard() {
+export default function SongListCard(props) {
 	const songs = useSelector(state => state.song);
 	const dispatch = useDispatch();
-
+	const { type } = props;
+	const list = (songs.length > 0) ? songs.find(x => x.name === type).songs : [];
 	return (
 		<Container style={{ marginTop: "9vh", marginBottom: "12vh" }}>
 			<Row>
 				{
-					// Fix undefine when songs not loading complete
-					(songs.length > 0) &&
-					songs[5].songs.map(s =>
+					list.map(s =>
 						<Col sm={6} lg={3}>
 							<Card className="card-home">
 								<Card.Img variant="top"
