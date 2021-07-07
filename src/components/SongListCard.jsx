@@ -8,7 +8,7 @@ export default function SongListCard() {
 	const dispatch = useDispatch();
 
 	return (
-		<Container style={{ marginTop: "9vh" }}>
+		<Container style={{ marginTop: "9vh", marginBottom: "12vh" }}>
 			<Row>
 				{songs.map(s =>
 					<Col sm={6} lg={3}>
