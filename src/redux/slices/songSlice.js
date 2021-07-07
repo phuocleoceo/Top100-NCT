@@ -7,7 +7,7 @@ export const fetchSongList = createAsyncThunk(
 			const response = await fetch("https://api.apify.com/v2/key-value-stores/EJ3Ppyr2t73Ifit64/records/LATEST");
 			const responseJSON = await response.json();
 			const list = responseJSON.songs.top100_VN[0].songs;
-			return list.slice(0, 10);
+			return list;
 		}
 		catch {
 			return [];
