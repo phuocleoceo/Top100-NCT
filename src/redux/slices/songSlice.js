@@ -6,18 +6,18 @@ export const fetchSongList = createAsyncThunk(
 		try {
 			const response = await fetch("https://api.apify.com/v2/key-value-stores/EJ3Ppyr2t73Ifit64/records/LATEST");
 			const responseJSON = await response.json();
-			const list = responseJSON.songs.top100_VN;
+			const list = responseJSON.songs;
 			return list;
 		}
 		catch {
-			return [];
+			return {};
 		}
 	}
 );
 
 export const songSlice = createSlice({
 	name: 'song',
-	initialState: [],
+	initialState: {},
 	reducers: {},
 	extraReducers: {
 		[fetchSongList.fulfilled]: (state, action) => {

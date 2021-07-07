@@ -7,23 +7,51 @@ import Player from './components/Player';
 import Header from './components/Header';
 
 function App() {
+	const songs = useSelector(state => state.song);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchSongList());
 	}, [dispatch]);
-	const songs = useSelector(state => state.song);
 
 	return (
 		<BrowserRouter>
 			<Header />
 			<Switch>
 				<Route path='/' exact>
-					<SongListCard type="Nhạc Trẻ" />
+					<SongListCard type="Nhạc Trẻ" area="top100_VN" />
 				</Route>
 				{
-					songs.map((s) =>
+					(songs.top100_VN !== undefined) &&
+					songs.top100_VN.map((s) =>
 						<Route path={"/" + s.name.replace(" ", "")}>
-							<SongListCard type={s.name} />
+							<SongListCard type={s.name} area="top100_VN" />
+						</Route>
+					)
+				}
+
+				{
+					(songs.top100_AM !== undefined) &&
+					songs.top100_AM.map((s) =>
+						<Route path={"/" + s.name.replace(" ", "")}>
+							<SongListCard type={s.name} area="top100_AM" />
+						</Route>
+					)
+				}
+
+				{
+					(songs.top100_CA !== undefined) &&
+					songs.top100_CA.map((s) =>
+						<Route path={"/" + s.name.replace(" ", "")}>
+							<SongListCard type={s.name} area="top100_CA" />
+						</Route>
+					)
+				}
+
+				{
+					(songs.top100_KL !== undefined) &&
+					songs.top100_KL.map((s) =>
+						<Route path={"/" + s.name.replace(" ", "")}>
+							<SongListCard type={s.name} area="top100_KL" />
 						</Route>
 					)
 				}
