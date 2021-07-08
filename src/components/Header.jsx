@@ -36,7 +36,7 @@ export default function Header() {
 					{
 						// Return a array like ["top100_VN","top100_AM"]
 						Object.getOwnPropertyNames(songs).map(top =>
-							(songs[top] !== undefined) &&
+							songs[top] &&
 							<NavDropdown title={<span className="text-white">{changeTopName(top)}</span>}
 								className="nav-down" id="basic-nav-dropdown">
 								{
