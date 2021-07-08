@@ -5,8 +5,9 @@ import { setCurrentPlay } from '../redux/slices/playSlice';
 
 export default function SongListCard(props) {
 	const songs = useSelector(state => state.song);
+	const content = useSelector(state => state.content);
 	const dispatch = useDispatch();
-	const { type, area } = props;
+	const { type, area } = content;
 	const list = (songs[area] !== undefined) ? songs[area].find(x => x.name === type).songs : [];
 	return (
 		<Container style={{ marginTop: "9vh", marginBottom: "12vh" }}>

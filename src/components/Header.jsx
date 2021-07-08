@@ -1,12 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentContent } from '../redux/slices/contentSlice';
 import { changeTopName } from '../extension'
 import { Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
 
 export default function Header() {
 	const play = useSelector(state => state.play);
 	const songs = useSelector(state => state.song);
+	const dispatch = useDispatch();
+
+	function handleSetContent(area, type) {
+		const action = setCurrentContent({ area, type });
+		dispatch(action);
+	}
+
 	return (
 		<Navbar bg="dark" expand="lg" fixed="top">
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -34,11 +41,8 @@ export default function Header() {
 								className="nav-down" id="basic-nav-dropdown">
 								{
 									songs[top].map(s =>
-										<NavDropdown.Item>
-											<Nav.Link as={Link} to={"/" + s.name.replace(" ", "")}
-												className="d-inline p-2 text-dark">
-												{s.name}
-											</Nav.Link>
+										<NavDropdown.Item onClick={() => handleSetContent(top, s.name)}>
+											{s.name}
 										</NavDropdown.Item>
 									)
 								}
