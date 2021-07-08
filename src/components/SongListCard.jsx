@@ -15,14 +15,16 @@ export default function SongListCard(props) {
 				{
 					list.map(s =>
 						<Col sm={6} lg={3}>
-							<Card className="card-home">
+							<Card className="card-home"
+								onClick={() => dispatch(setCurrentPlay(s))} >
 								<Card.Img variant="top"
 									src={s.avatar}
-									className="img-home"
-									onClick={() => dispatch(setCurrentPlay(s))} />
+									className="img-home" />
 								<Card.Body>
 									<Card.Title>{s.title}</Card.Title>
 									<Card.Text>{s.creator}</Card.Text>
+									<div className="overlay"></div>
+									<Card.Img src="/playbutton.png" className="playbutton" />
 								</Card.Body>
 							</Card>
 						</Col>)
