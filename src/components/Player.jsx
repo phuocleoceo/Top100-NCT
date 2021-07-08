@@ -22,6 +22,7 @@ export default function Player() {
 			onClickNext={() => dispatch(getNextPlay(list))}
 			onClickPrevious={() => dispatch(getPreviousPlay(list))}
 			onEnded={() => dispatch(getNextPlay(list))}
+			onError={() => dispatch(getNextPlay(list))}
 		/>
 	)
 }
