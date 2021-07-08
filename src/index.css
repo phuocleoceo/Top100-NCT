@@ -47,7 +47,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0);
   transition: background 0.5s ease;
 }
 
@@ -59,12 +58,10 @@
 .playbutton {
   width: 40%;
   height:auto;
-  color: white;
   z-index: 1;
   position: absolute;
   left:30%;
   top: 20%;
-  text-align: center;
   opacity: 0;
   transition: opacity .35s ease;
 }
