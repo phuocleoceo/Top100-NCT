@@ -4,7 +4,7 @@ export const fetchSongList = createAsyncThunk(
 	"song/fetchSongList",
 	async () => {
 		try {
-			const response = await fetch("https://api.apify.com/v2/key-value-stores/EJ3Ppyr2t73Ifit64/records/LATEST");
+			const response = await fetch(process.env.REACT_APP_API);
 			const responseJSON = await response.json();
 			const list = responseJSON.songs;
 			return list;

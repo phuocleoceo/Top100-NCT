@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialStates = {
-	avatar: "https://i.pinimg.com/originals/60/45/b1/6045b177c7ed2848d4e1b66b69eb4790.jpg",
+	avatar: "/plc.jpg",
 	creator: "Trương Minh Phước",
 	lyric: "hihi",
 	music: "",
