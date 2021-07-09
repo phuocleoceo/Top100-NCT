@@ -24,8 +24,7 @@ export default function SongListCard(props) {
 									<Card.Title>{s.title}</Card.Title>
 									<Card.Text>{s.creator}</Card.Text>
 									<div className="overlay"></div>
-									<Card.Img src="/playbutton.png" className="playbutton"
-										onClick={() => dispatch(setCurrentPlay(s))} />
+									<Card.Img src="/playbutton.png" className="playbutton" />
 								</Card.Body>
 							</Card>
 						</Col>)
