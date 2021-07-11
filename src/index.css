@@ -41,6 +41,10 @@
 	position: fixed;
 }
 
+.shuffle-button{
+	margin-right: -7vw;
+}
+
 .playbutton {
   	width: 40%;
   	height:auto;

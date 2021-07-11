@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNextPlay, getPreviousPlay } from '../redux/slices/playSlice';
-import AudioPlayer from 'react-h5-audio-player';
+import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 export default function Player() {
@@ -23,6 +23,15 @@ export default function Player() {
 			onClickPrevious={() => dispatch(getPreviousPlay(list))}
 			onEnded={() => dispatch(getNextPlay(list))}
 			onError={() => dispatch(getNextPlay(list))}
+			customAdditionalControls={
+				[
+					RHAP_UI.LOOP,
+					<img src="/shuffle.png"
+						width="25" height="30"
+						alt="shuffle"
+						className="shuffle-button" />
+				]
+			}
 		/>
 	)
 }
