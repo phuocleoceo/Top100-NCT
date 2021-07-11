@@ -1,16 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNextPlay, getPreviousPlay } from '../redux/slices/playSlice';
+import { setList } from '../redux/slices/listSlice';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 export default function Player() {
 	const dispatch = useDispatch();
-	const songs = useSelector(state => state.song);
 	const play = useSelector(state => state.play);
-	const content = useSelector(state => state.content);
-	const { type, area } = content;
-	const list = songs[area] ? songs[area].find(x => x.name === type).songs : [];
+	const list = useSelector(state => state.list);
 
 	return (
 		<AudioPlayer
