@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Row, Container, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentPlay } from '../redux/slices/playSlice';
+import { setList } from '../redux/slices/listSlice';
 
 export default function SongListCard(props) {
 	const songs = useSelector(state => state.song);
 	const content = useSelector(state => state.content);
+	const list = useSelector(state => state.list);
 	const dispatch = useDispatch();
-	const { type, area } = content;
-	const list = songs[area] ? songs[area].find(x => x.name === type).songs : [];
+	useEffect(() => {
+		const action = setList({
+			type: content.type,
+			area: content.area,
+			songs: songs
+		});
+		dispatch(action);
+	}, [dispatch, content, songs]);
+
 	return (
 		<Container style={{ marginTop: "9vh", marginBottom: "12vh" }}>
 			<Row>
