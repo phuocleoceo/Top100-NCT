@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentContent } from '../redux/slices/contentSlice';
+import { setList } from '../redux/slices/listSlice';
 import { changeTopName } from '../extension'
 import { Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
 
@@ -9,8 +9,8 @@ export default function Header() {
 	const songs = useSelector(state => state.song);
 	const dispatch = useDispatch();
 
-	function handleSetContent(area, type) {
-		const action = setCurrentContent({ area, type });
+	function handleSetContent(area, type, songs) {
+		const action = setList({ area, type, songs });
 		dispatch(action);
 	}
 
@@ -37,11 +37,13 @@ export default function Header() {
 						// Return a array like ["top100_VN","top100_AM"]
 						Object.getOwnPropertyNames(songs).map(top =>
 							songs[top] &&
-							<NavDropdown title={<span className="text-white">{changeTopName(top)}</span>}
+							<NavDropdown
+								title={<span className="text-white">{changeTopName(top)}</span>}
 								className="nav-down" id="basic-nav-dropdown">
 								{
 									songs[top].map(s =>
-										<NavDropdown.Item onClick={() => handleSetContent(top, s.name)}>
+										<NavDropdown.Item
+											onClick={() => handleSetContent(top, s.name, songs)}>
 											{s.name}
 										</NavDropdown.Item>
 									)

@@ -6,17 +6,16 @@ import { setList } from '../redux/slices/listSlice';
 
 export default function SongListCard(props) {
 	const songs = useSelector(state => state.song);
-	const content = useSelector(state => state.content);
 	const list = useSelector(state => state.list);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const action = setList({
-			type: content.type,
-			area: content.area,
+			type: "Nhạc Trẻ",
+			area: "top100_VN",
 			songs: songs
 		});
 		dispatch(action);
-	}, [dispatch, content, songs]);
+	}, [dispatch, songs]);
 
 	return (
 		<Container style={{ marginTop: "9vh", marginBottom: "12vh" }}>
@@ -33,7 +32,8 @@ export default function SongListCard(props) {
 									<Card.Title>{s.title}</Card.Title>
 									<Card.Text>{s.creator}</Card.Text>
 									<div className="overlay"></div>
-									<Card.Img src="/playbutton.png" className="playbutton" />
+									<Card.Img src="/playbutton.png"
+										className="playbutton" />
 								</Card.Body>
 							</Card>
 						</Col>)
