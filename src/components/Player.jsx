@@ -10,6 +10,10 @@ export default function Player() {
 	const play = useSelector(state => state.play);
 	const list = useSelector(state => state.list);
 
+	const handleNextPlay = () => dispatch(getNextPlay(list));
+	const handlePreviousPlay = () => dispatch(getPreviousPlay(list));
+	const handleShufflePlay = () => dispatch(setShuffleList());
+
 	return (
 		<AudioPlayer
 			className="player-bar"
@@ -17,18 +21,18 @@ export default function Player() {
 			autoPlay
 			src={play.music}
 			showSkipControls
-			onClickNext={() => dispatch(getNextPlay(list))}
-			onClickPrevious={() => dispatch(getPreviousPlay(list))}
-			onEnded={() => dispatch(getNextPlay(list))}
-			onError={() => dispatch(getNextPlay(list))}
+			onClickNext={handleNextPlay}
+			onClickPrevious={handlePreviousPlay}
+			onEnded={handleNextPlay}
+			onError={handleNextPlay}
 			customAdditionalControls={
 				[
 					RHAP_UI.LOOP,
-					<img src="/shuffle.png"
+					<input type="image" src="/shuffle.png"
 						width="25" height="30"
 						alt="shuffle"
 						className="shuffle-button"
-						onClick={() => dispatch(setShuffleList())} />
+						onClick={handleShufflePlay} />
 				]
 			}
 		/>

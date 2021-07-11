@@ -9,7 +9,7 @@ export default function Header() {
 	const songs = useSelector(state => state.song);
 	const dispatch = useDispatch();
 
-	function handleSetContent(area, type, songs) {
+	function handleSetContent(area, type) {
 		const action = setList({ area, type, songs });
 		dispatch(action);
 	}
@@ -39,11 +39,12 @@ export default function Header() {
 							songs[top] &&
 							<NavDropdown
 								title={<span className="text-white">{changeTopName(top)}</span>}
-								className="nav-down" id="basic-nav-dropdown">
+								className="nav-down" id="basic-nav-dropdown"
+							>
 								{
 									songs[top].map(s =>
 										<NavDropdown.Item
-											onClick={() => handleSetContent(top, s.name, songs)}>
+											onClick={() => handleSetContent(top, s.name)}>
 											{s.name}
 										</NavDropdown.Item>
 									)

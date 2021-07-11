@@ -17,6 +17,8 @@ export default function SongListCard(props) {
 		dispatch(action);
 	}, [dispatch, songs]);
 
+	const handleClickCard = (s) => dispatch(setCurrentPlay(s));
+
 	return (
 		<Container style={{ marginTop: "9vh", marginBottom: "12vh" }}>
 			<Row>
@@ -24,7 +26,7 @@ export default function SongListCard(props) {
 					list.map(s =>
 						<Col sm={6} lg={3}>
 							<Card className="card-home"
-								onClick={() => dispatch(setCurrentPlay(s))} >
+								onClick={() => handleClickCard(s)} >
 								<Card.Img variant="top"
 									src={s.avatar}
 									className="img-home" />
