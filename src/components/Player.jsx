@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNextPlay, getPreviousPlay } from '../redux/slices/playSlice';
-import { setList } from '../redux/slices/listSlice';
+import { setShuffleList } from '../redux/slices/listSlice';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -27,7 +27,8 @@ export default function Player() {
 					<img src="/shuffle.png"
 						width="25" height="30"
 						alt="shuffle"
-						className="shuffle-button" />
+						className="shuffle-button"
+						onClick={() => dispatch(setShuffleList())} />
 				]
 			}
 		/>
