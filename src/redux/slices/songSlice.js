@@ -6,8 +6,7 @@ export const fetchSongList = createAsyncThunk(
 		try {
 			const response = await fetch(process.env.REACT_APP_API);
 			const responseJSON = await response.json();
-			const list = responseJSON.songs;
-			return list;
+			return responseJSON.songs;
 		}
 		catch {
 			return {};

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentPlay } from '../redux/slices/playSlice';
 import { setList } from '../redux/slices/listSlice';
 
-export default function SongListCard(props) {
+export default function SongListCard() {
 	const songs = useSelector(state => state.song);
 	const list = useSelector(state => state.list);
 	const dispatch = useDispatch();

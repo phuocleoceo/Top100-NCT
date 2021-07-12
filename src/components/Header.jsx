@@ -9,7 +9,7 @@ export default function Header() {
 	const songs = useSelector(state => state.song);
 	const dispatch = useDispatch();
 
-	function handleSetContent(area, type) {
+	const handleSetContent = (area, type) => {
 		const action = setList({ area, type, songs });
 		dispatch(action);
 	}

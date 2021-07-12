@@ -8,8 +8,8 @@ export const listSlice = createSlice({
 			const { type, area, songs } = action.payload;
 			return songs[area] ? songs[area].find(x => x.name === type).songs : [];
 		},
-		setShuffleList: (state, action) => {
-			const list = [...state];
+		shuffleList: (state, action) => {
+			const list = state; // ReduxToolkit has Immer library to Immutable -> not Clone
 			for (let i = list.length - 1; i > 0; i--) {
 				const j = Math.floor(Math.random() * (i + 1));
 				const temp = list[i];
@@ -22,6 +22,6 @@ export const listSlice = createSlice({
 	extraReducers: {}
 })
 
-export const { setList, setShuffleList } = listSlice.actions
+export const { setList, shuffleList } = listSlice.actions
 
 export default listSlice.reducer

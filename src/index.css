@@ -42,7 +42,13 @@
 }
 
 .shuffle-button{
-	margin-right: -7vw;
+	margin-right: -6vw;
+}
+.shuffle-button:hover{
+	transform: translateX(-0.1vw);
+}
+.shuffle-button:active{
+	transform: translate(-0.1vw,0.1vh);
 }
 
 .playbutton {

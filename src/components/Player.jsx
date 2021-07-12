@@ -1,18 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNextPlay, getPreviousPlay } from '../redux/slices/playSlice';
-import { setShuffleList } from '../redux/slices/listSlice';
+import { shuffleList } from '../redux/slices/listSlice';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 export default function Player() {
-	const dispatch = useDispatch();
 	const play = useSelector(state => state.play);
 	const list = useSelector(state => state.list);
+	const dispatch = useDispatch();
 
 	const handleNextPlay = () => dispatch(getNextPlay(list));
 	const handlePreviousPlay = () => dispatch(getPreviousPlay(list));
-	const handleShufflePlay = () => dispatch(setShuffleList());
+	const handleShufflePlay = () => dispatch(shuffleList());
 
 	return (
 		<AudioPlayer
