@@ -18,7 +18,11 @@ export default function SongListCard() {
 		dispatch(action);
 	}, [dispatch, songs]);
 
-	const handleClickCard = (s) => dispatch(setCurrentPlay(s));
+	const handleClickCard = (s) => {
+		document.title = s.title + " - " + s.creator;
+		dispatch(setCurrentPlay(s));
+	}
+
 
 	return (
 		<Container className="container-margin">
