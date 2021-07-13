@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Card, Row, Container, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentPlay } from '../redux/slices/playSlice';
-import { setList } from '../redux/slices/listSlice';
+import { setCurrentPlay } from '../../redux/slices/playSlice';
+import { setList } from '../../redux/slices/listSlice';
+import './style.css';
 
 export default function SongListCard() {
 	const songs = useSelector(state => state.song);
@@ -20,7 +21,7 @@ export default function SongListCard() {
 	const handleClickCard = (s) => dispatch(setCurrentPlay(s));
 
 	return (
-		<Container style={{ marginTop: "9vh", marginBottom: "12vh" }}>
+		<Container className="container-margin">
 			<Row>
 				{
 					list.map(s =>

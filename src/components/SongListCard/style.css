@@ -1,3 +1,8 @@
+.container-margin{
+	margin-top: 9vh;
+	margin-bottom: 12vh;
+}
+
 .card-home{
 	margin-top: 2rem;
 	margin-bottom: 2rem;
@@ -13,44 +18,6 @@
 	object-fit:cover;
 }
 
-.img-avatar-play{
-	width: 4vw;
-	height: 4vw;
-	margin-right: 2vw;
-}
-
-.infor-play{
-	max-height: 9vh;
-	margin-right: 1vw;
-	margin-left: 2vw;
-	color: white;
-}
-
-.pTitle{
-	font-size: 1.1rem;
-	margin-bottom: 0;
-}
-
-.pCreator{
-	font-size: 0.8rem;
-}
-
-.player-bar{
-	width: 100%;	
-	bottom: 0;
-	position: fixed;
-}
-
-.shuffle-button{
-	margin-right: -6vw;
-}
-.shuffle-button:hover{
-	transform: translateX(-0.1vw);
-}
-.shuffle-button:active{
-	transform: translate(-0.1vw,0.1vh);
-}
-
 .playbutton {
   	width: 40%;
   	height:auto;
@@ -61,6 +28,7 @@
   	opacity: 0;
   	transition: opacity .35s ease;
 }
+
 /* not support for mobile  */
 @media screen and (min-width: 992px){
     .overlay {

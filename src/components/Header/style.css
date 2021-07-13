@@ -1,0 +1,20 @@
+.logo-play{
+	width: 3.3rem;
+	height: 3.3rem;
+}
+
+.infor-play{
+	max-height: 9vh;
+	margin-right: 1vw;
+	margin-left: 2vw;
+	color: white;
+}
+
+.pTitle{
+	font-size: 1.1rem;
+	margin-bottom: 0;
+}
+
+.pCreator{
+	font-size: 0.8rem;
+}
