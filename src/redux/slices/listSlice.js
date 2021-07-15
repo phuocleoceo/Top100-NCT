@@ -17,11 +17,28 @@ export const listSlice = createSlice({
 				list[j] = temp;
 			}
 			return list;
+		},
+		searchSong: (state, action) => {
+			const { searchValue, songs } = action.payload;
+			let searchList = [];
+			(songs) &&
+				Object.getOwnPropertyNames(songs).map(top =>
+					songs[top] &&
+					songs[top].forEach(st => {
+						let stSearch = st.songs.filter(x =>
+							(typeof x.title === "string"
+								&& x.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1) ||
+							(typeof x.creator === "string"
+								&& x.creator.toLowerCase().indexOf(searchValue.toLowerCase()) > -1));
+						searchList = searchList.concat(stSearch);
+					})
+				)
+			return searchList;
 		}
 	},
 	extraReducers: {}
 })
 
-export const { setList, shuffleList } = listSlice.actions
+export const { setList, shuffleList, searchSong } = listSlice.actions
 
 export default listSlice.reducer
