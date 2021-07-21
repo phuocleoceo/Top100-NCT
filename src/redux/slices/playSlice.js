@@ -24,13 +24,15 @@ export const playSlice = createSlice({
 		},
 		getNextPlay: (state, action) => {
 			const listSongs = action.payload;
-			const index = listSongs.findIndex(c => c.title === state.title);
+			const index = listSongs.findIndex(c => c.title === state.title
+												&& c.creator === state.creator);
 			if (index === (listSongs.length - 1)) return listSongs[0];
 			return listSongs[index + 1];
 		},
 		getPreviousPlay: (state, action) => {
 			const listSongs = action.payload;
-			const index = listSongs.findIndex(c => c.title === state.title);
+			const index = listSongs.findIndex(c => c.title === state.title
+												&& c.creator === state.creator);
 			if (index === 0) return listSongs[listSongs.length - 1];
 			return listSongs[index - 1];
 		}
